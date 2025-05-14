@@ -1,0 +1,3 @@
+[32mINFO    [0m utils.logger:conftest.py:12 Iniciando navegador: chrome
+[33mWARNING [0m selenium.webdriver.common.selenium_manager:selenium_manager.py:138 Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+[32mINFO    [0m utils.logger:conftest.py:18 Cerrando navegador...

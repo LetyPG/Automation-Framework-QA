@@ -1,0 +1,3 @@
+2025-05-07 13:17:07,108 - INFO - Iniciando navegador: chrome
+2025-05-07 13:17:14,046 - WARNING - Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+2025-05-07 13:17:17,338 - INFO - Cerrando navegador...

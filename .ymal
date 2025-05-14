@@ -1,0 +1,15 @@
+login_page:
+  username_input:
+    by: id
+    value: username
+  password_input:
+    by: id
+    value: password
+  submit_button:
+    by: xpath
+    value: "//button[@type='submit']"
+
+home_page:
+  welcome_message:
+    by: css
+    value: "div.welcome"
