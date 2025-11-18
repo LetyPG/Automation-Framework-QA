@@ -147,7 +147,7 @@ git clone https://github.com/LetyPG/Automation-Framework-QA.git
 
 ```
 
->After you clone the repo on the directory you want, you can run the tests inside of it, for this case is used the directory `Automation-Framework-QA`.
+>After you clone the repo on the directory you want, you can run the tests inside of it; in this case is used the directory `Automation-Framework-QA`.
 
 #### 2️⃣ Navigate to the project directory
 
@@ -158,11 +158,11 @@ cd Automation-Framework-QA
 #### 3️⃣ Set Up Python Virtual Environment (Recommended)
 
 Use a virtual environment to isolate project dependencies from your system Python. This is a good practice to keep the development environment clean and organized and avoid conflicts with other dependencies of your system, for example, in case you have a different version of Python installed in your system and the framework requires a different version, the virtual environment will allow you to keep both versions without conflicts.
-By executing the following commands in the terminal, you can create and activate a virtual environment, both use the tool `venv` that comes by default with Python.
+By executing the following commands in the terminal, you can create and activate a virtual environment, which uses the tool `venv` that comes by default with Python.
 
 #### On Linux/macOS:
 
-- Create virtual environment
+- Create a virtual environment
 
 ```
 python3 -m venv venv
@@ -178,7 +178,7 @@ source venv/bin/activate
 
 #### On Windows:
 
-- Create virtual environment
+- Create a virtual environment
 
 ```
 python -m venv venv
@@ -208,13 +208,13 @@ pip install -r requiriments.txt
 
 #### 5️⃣ Create a .env file and adapt it
 
-- Create a .env file and adapt it to your needs, this is an explanatory framework, so you can adapt it to your needs.
+- Create a .env file and adapt it to your needs. This is an explanatory framework, so you can adapt it to your needs.
 
 
 
 #### 6️⃣ Run tests
 
-Since you already are located in the project directory, on the root directory, you do not need to move to any other directory, you can run the tests from there, using the following commands:
+Since you are already located in the project directory, on the root directory, you do not need to move to any other directory; you can run the tests from there, using the following commands:
 
 
 #### Tests directory `tests/`
@@ -259,7 +259,7 @@ pytest -m regression -v
 
 >Note: `-m` filters by marker name, not by test filename. To run a specific file, pass the file path; to match test names, use `-k`.
 
->Note: You can run tests using `-v` for verbose output or `-q` for quiet output, thats depends on your information needs.
+>Note: You can run tests using `-v` for verbose output or `-q` for quiet output, that depends on your information needs.
 
 #### 7️⃣ Allure reports (optional)
 
@@ -433,9 +433,9 @@ El nombre `C-QA` se mantiene como una consecución del sitio web educativo [Comp
 🟩 Le recomiendo que: 
 - Intente entender el código y la estructura del framework, la lógica del programa y los fundamentos de la automatización utilizando Selenium WebDriver, Pytest y Python
 - No solo copie y pegue el código, porque eso no es el punto de este proyecto, el punto es entender el código y la estructura del framework.
-- Una vez que comprenda el código y la estructura del framework, podrá crear su propio framework, y podrá automatizar su propio sitio web UI.
+- Una vez que comprenda el código y la estructura del framework, podrá crear su propio framework y podrá automatizar su propio sitio web UI.
 - Además, puede agregar nuevas características al framework, como automatización móvil, automatización de API, flujo CI/CD (Jenkins/GitHub Actions), pruebas unitarias, etc.
-- También puede incluir más módulos de pruebas, y más casos de pruebas y las bibliotecas necesarias para que funcione.
+- También puede incluir más módulos de pruebas y más casos de pruebas y las bibliotecas necesarias para que funcione.
 
 ## 🟩 Alcance
 El alcance específico de este proyecto es la práctica de Automation UI para explicar Selenium Webdriver y Pytest utilizando un sitio web de comercio electrónico simple.
@@ -733,11 +733,11 @@ pytest features/ --html=reports/bdd_report.html
 
 >Nota: `-m` filtra por nombre de marker, no por nombre de archivo de test. Para ejecutar un archivo específico, pasa la ruta del archivo; para coincidir con nombres de test, usa `-k`.
 
->Nota: Puedes ejecutar tests usando `-v` para salida detallada o `-q` para salida silenciosa, eso depende de tus necesidades de información.
+>Nota: Puedes ejecutar tests usando `-v` para salida detallada o `-q` para salida silenciosa; eso depende de tus necesidades de información.
 
 #### 7️⃣ Allure reports (opcional)
 
-Allure no está forzado via [pytest.ini](cci:7://file:///home/user/GuideProject/Automation-Framework-QA/pytest.ini:0:0-0:0) para mantener la configuración flexible. Cuando quieras generar un reporte de Allure, pasa el argumento via CLI:
+Allure no está forzado vía [pytest.ini](cci:7://file:///home/user/GuideProject/Automation-Framework-QA/pytest.ini:0:0-0:0) para mantener la configuración flexible. Cuando quieras generar un reporte de Allure, pasa el argumento via CLI:
 
 - Para ejecuciones generales de **tests**- `tests/`:
 
@@ -789,30 +789,30 @@ pytest features/ --alluredir=reports/allure-results
 allure serve reports/allure-results
 ```
 
-## Recommended Testing Distribution
+## Distribucion de Testing Recomendada
 
 For a balanced QA framework:
 
-| Test Type | % of Tests | Purpose |
+| Tipo de Metodología de Testing | % de Tests | Propósito|
 |-----------|-----------|---------|
-| **BDD (Acceptance)** | 15-20% | Critical user flows, acceptance criteria |
-| **Integration/Functional** | 60-70% | Detailed API/UI testing, edge cases |
-| **Unit Tests** | 10-15% | Test framework components (POMs, utils) |
+| **BDD (Acceptance)** | 15-20% | Flujos criticos de usuario, criterios de aceptacion |
+| **Integration/Functional** | 60-70% | Testing Detallado por estrategia de prueba: API/UI/e2e.../db/casos de borde/...|
+| **Unit Tests** | 10-15% | Test sobre los componentes del framework, verifica las funciones desarrolladas (valida POO,utils)|
 | **E2E** | 5-10% | Full system integration |
 
-**BDD Focus Areas:**
-- Critical happy paths
-- Key negative scenarios
-- Business-critical workflows
-- Acceptance criteria validation
+**BDD Areas de Enfoque:**
+- **happy paths** criticos
+- Escenarios claves negativos
+- Flujos de negocio Business-critical workflows
+- Validación de criterios de Aceptación 
 
 **Standard Pytest Focus Areas:**
-- Edge cases
-- Boundary testing
-- Performance tests
-- Security tests
-- Data validation
-- Technical scenarios
+- Casos de borde
+- Pruebas de limites
+- Pruebas de rendimiento
+- Pruebas de seguridad
+- Validación de datos
+- Escenarios técnicos
 
 
 ## 🟩 Notas Finales
