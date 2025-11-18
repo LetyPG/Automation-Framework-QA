@@ -1,4 +1,15 @@
-## Generador de datos con Faker (usuarios, emails, direcciones, etc.)
+"""
+English: 
+- Data generator with Faker Python library(users, emails, addresses, etc.)
+- This generator is used to create random data for the tests, to validate the functionality of the site.
+- So it is not need to create manual data for the tests, each time you need to iterate the tests, it will create random data.
+
+Spanish: 
+- Generador de datos con la librería Faker de Python (usuarios, emails, direcciones, etc.)
+- Este generador se utiliza para crear datos aleatorios para los tests, para validar la funcionalidad del sitio.
+- Así que no es necesario crear datos manualmente para los tests, cada vez que necesites iterar los tests, creará datos aleatorios.
+
+"""
 
 from faker import Faker
 import random

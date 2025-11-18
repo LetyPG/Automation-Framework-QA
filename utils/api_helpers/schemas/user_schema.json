@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User API Response Schema",
+  "description": "JSON Schema for validating user API responses from reqres.in or similar services",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique user identifier"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User email address"
+        },
+        "first_name": {
+          "type": "string",
+          "description": "User's first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "User's last name"
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to user's avatar image"
+        }
+      },
+      "required": ["id", "email", "first_name", "last_name", "avatar"],
+      "additionalProperties": false
+    },
+    "support": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["data"],
+  "additionalProperties": true
+}

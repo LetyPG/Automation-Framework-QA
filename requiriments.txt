@@ -1,0 +1,43 @@
+selenium==4.19.0
+pytest==8.1.1
+pytest-check==2.1.0
+pytest-bdd==6.1.2
+faker==24.8.0
+python-dotenv==1.0.1
+allure-pytest==2.13.2
+requests==2.31.0
+jsonschema==4.21.1
+pytest-html==4.0.2
+jenkins==2.26.1
+
+
+
+
+# Packages--------------- Main usage
+ selenium ---------------- Usage of WebDriver to automate web browser
+ pytest ------------------ Usage of Pytest as testing framework
+ pytest-check ------------ It extends pytest with additional features for checking elements
+ pytest-bdd -------------- It extends pytest with additional features for BDD
+ faker ------------------- Usage of Faker to generate test data
+ python-dotenv ----------- Usage of python-dotenv to load environment variables
+ allure-pytest ----------- Usage of allure-pytest to generate test reports
+ requests ---------------- Usage of requests to make HTTP requests
+ jsonschema -------------- Usage of jsonschema to validate JSON data
+ pytest-html ------------- Usage of pytest-html to generate HTML reports
+jenkins ------------------- Usage of jenkins to run tests
+
+
+
+
+#Paquetes ---------------- Uso principal
+selenium ---------------- Automatización del navegador con WebDriver
+pytest ------------------ Framework de testing
+pytest-check ------------ Utiliza pytest-check para extender pytest con funcionalidades adicionales para checking elements
+pytest-bdd -------------- Utiliza pytest-bdd para extender pytest con funcionalidades adicionales para BDD
+faker ------------------- Utiliza faker para generar datos de prueba
+python-dotenv ----------- Utiliza python-dotenv para cargar variables de entorno
+allure-pytest ----------- Utiliza allure-pytest para generar informes de pruebas
+requests ---------------- Utiliza requests para hacer peticiones HTTP
+jsonschema -------------- Validación de esquemas JSON en respuestas API
+pytest-html ------------- Utiliza pytest-html para generar informes de pruebas en HTML
+jenkins ------------------- Utiliza jenkins para ejecutar tests

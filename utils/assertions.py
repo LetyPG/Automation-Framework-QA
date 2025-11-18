@@ -1,4 +1,4 @@
-#  # Soft/hard assertions, comparaciones personalizadas
+# Soft/hard assertions, comparaciones personalizadas
 from selenium.common.exceptions import NoSuchElementException
 class AssertionError(Exception):
     pass
