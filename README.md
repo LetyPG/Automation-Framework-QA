@@ -1,4 +1,7 @@
 
+**Version**: 0.1.2  
+**Last Updated**: 2025  
+**Language**: English | [Español](../spanish/index.md)
 
 >There are two versions of this README.md, one in English, indicated by 🟦 at the top of this file and one in Spanish, indicated by 🟩, at the bottom, you can choose the one you want to use. 
 
