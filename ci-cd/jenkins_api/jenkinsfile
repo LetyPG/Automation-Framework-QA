@@ -1,0 +1,74 @@
+```groovy
+pipeline {
+    agent any
+    
+    environment {
+        PYTHON_VERSION = "3.10"
+        API_BASE_URL = 'https://jsonplaceholder.typicode.com'
+        API_KEY = credentials('api-key-id')
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/your-repo/framework.git'
+            }
+        }
+        
+        stage('Setup Environment') {
+            steps {
+                sh """
+                    python${PYTHON_VERSION} -m venv venv
+                    . venv/bin/activate
+                    pip install -r requiriments.txt
+                """
+            }
+        }
+        
+        stage('Code Quality') {
+            steps {
+                sh """
+                    . venv/bin/activate
+                    pip install flake8
+                    flake8 api/ tests/api_test/ --max-line-length=120
+                """
+            }
+        }
+        
+        stage('Run API Tests') {
+            steps {
+                sh """
+                    . venv/bin/activate
+                    pytest tests/api_test/ -v \
+                        --html=reports/api_report.html \
+                        --self-contained-html \
+                        --alluredir=reports/allure-results
+                """
+            }
+        }
+    }
+    
+    post {
+        always {
+            publishHTML(target: [
+                reportDir: 'reports',
+                reportFiles: 'api_report.html',
+                reportName: 'API Test Report'
+            ])
+            
+            allure includeProperties: false,
+                   results: [[path: 'reports/allure-results']]
+            
+            cleanWs()
+        }
+        
+        failure {
+            emailext(
+                subject: "Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Check: ${env.BUILD_URL}",
+                to: 'qa-team@example.com'
+            )
+        }
+    }
+}
+```

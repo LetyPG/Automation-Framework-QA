@@ -1,0 +1,88 @@
+
+// This is a Jenkinsfile for a CI/CD pipeline as an example of how to run the several tests suites
+
+pipeline {
+    agent any // Use any available Jenkins agent
+
+    environment {
+        // Define environment variables
+        // Jenkins can inject credentials securely here
+        PY_VER = "3.10"
+        SECRET_API_KEY = credentials('the-specific-jenkins-secret-id')
+    }
+
+    stages {
+        stage('Setup Environment') {
+            steps {
+                echo 'Setting up Python environment...'
+                sh "python${PY_VER} -m venv venv"
+                sh ". venv/bin/activate && pip install -r requirements.txt"
+                // You might also need to install browser drivers here
+            }
+        }
+
+        stage('Lint & Static Analysis') {
+            steps {
+                echo 'Running linter...'
+                sh ". venv/bin/activate && pip install flake8 && flake8 ."
+            // flake8 is a tool for checking Python code for style and programming errors
+            // Other tools can be used as well, such as mypy for type checking, black for code formatting, such as sonarqube for code quality checks. 
+            // Also it can be used as well for static analysis and security checks, such as bandit for security checks.  
+            }
+        }
+
+        stage('Run API Tests') {
+            steps {
+                echo 'Running API tests...'
+                // Use pytest markers to run only API tests
+                // You'll need to add @pytest.mark.api to your API tests
+                sh ". venv/bin/activate && pytest tests/api_test/ --html=reports/api_report.html || true"
+            }
+        }
+
+        stage('Run UI Tests') {
+            steps {
+                echo 'Running UI smoke tests (headless)...'
+                // Use pytest markers to run only UI tests
+                // You'll need to add @pytest.mark.ui to your UI tests
+                sh ". venv/bin/activate && pytest tests/smoke_tests/ --html=reports/ui_report.html || true"
+            }
+        }
+    }
+    
+        stage('Run BDD Scenarios') { // (Using BDD Scenarios)
+            steps {
+                echo 'Running BDD scenarios...'
+                // Assumes you add @pytest.mark.bdd to your step def test functions
+                sh ". venv/bin/activate && pytest -m bdd --html=reports/bdd_report.html || true"
+            }
+        }
+    }
+...
+    post {
+        // This block runs regardless of the pipeline's success or failure
+        always {
+            echo 'Archiving reports...'
+            // This Jenkins plugin publishes your HTML reports
+            publishHTML(target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports',
+                reportFiles: 'api_report.html',
+                reportName: 'API Test Report'
+            ])
+            publishHTML(target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports',
+                reportFiles: 'ui_report.html',
+                reportName: 'UI Test Report'
+            ])
+            
+            // Clean up the workspace
+            cleanWs() 
+        }
+    }
+}

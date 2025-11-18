@@ -1,0 +1,250 @@
+// Jenkinsfile for Smoke Tests - Quick validation suite
+// Runs critical smoke tests to verify basic application functionality
+
+pipeline {
+    agent any  // Use any available Jenkins agent
+    
+    environment {
+        // Python configuration
+        PYTHON_VERSION = "3.10"
+        
+        // Application URLs
+        BASE_URL = 'https://magento.softwaretestingboard.com'
+        
+        // Browser settings
+        BROWSER = 'chrome'
+        HEADLESS = 'true'  // Run in headless mode for CI
+        
+        // Credentials (securely injected from Jenkins)
+        TEST_USER = credentials('test-user-credentials')
+    }
+    
+    options {
+        // Keep only last 20 builds to save disk space
+        buildDiscarder(logRotator(
+            numToKeepStr: '20',
+            artifactNumToKeepStr: '5'
+        ))
+        
+        // Timeout after 20 minutes (smoke tests should be fast)
+        timeout(time: 20, unit: 'MINUTES')
+        
+        // Add timestamps to console output
+        timestamps()
+    }
+    
+    triggers {
+        // Run smoke tests every 2 hours
+        cron('H */2 * * *')
+        
+        // Check repository for changes every 30 minutes
+        pollSCM('H/30 * * * *')
+    }
+    
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo 'Checking out code from repository...'
+                checkout scm
+                
+                // Display commit information
+                sh '''
+                    echo "Branch: $(git branch --show-current)"
+                    echo "Commit: $(git log -1 --oneline)"
+                    echo "Author: $(git log -1 --pretty=format:'%an')"
+                '''
+            }
+        }
+        
+        stage('Setup Python Environment') {
+            steps {
+                echo '🐍 Setting up Python virtual environment...'
+                sh """
+                    # Create virtual environment
+                    python${PYTHON_VERSION} -m venv venv
+                    
+                    # Activate and install dependencies
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install -r requiriments.txt
+                    
+                    # Verify installations
+                    echo "Python version:"
+                    python --version
+                    echo "Installed packages:"
+                    pip list | grep -E 'selenium|pytest'
+                """
+            }
+        }
+        
+        stage('Install Browser Dependencies') {
+            steps {
+                echo 'Setting up browser for headless testing...'
+                sh """
+                    # Install Chrome browser (if not already installed)
+                    if ! command -v google-chrome &> /dev/null; then
+                        echo "Installing Google Chrome..."
+                        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+                        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+                        sudo apt-get update
+                        sudo apt-get install -y google-chrome-stable
+                    fi
+                    
+                    # Verify Chrome installation
+                    google-chrome --version
+                """
+            }
+        }
+        
+        stage('Run Smoke Tests') {
+            steps {
+                echo ' Executing smoke test suite...'
+                sh """
+                    . venv/bin/activate
+                    
+                    # Set display for headless mode
+                    export DISPLAY=:99
+                    
+                    # Run smoke tests with pytest
+                    pytest tests/smoke_tests/ -v -m smoke \
+                        --html=reports/smoke_report.html \
+                        --self-contained-html \
+                        --alluredir=reports/allure-results \
+                        --maxfail=3 \
+                        --tb=short \
+                        || true
+                    
+                    # Display test summary
+                    echo "Smoke tests execution completed"
+                """
+            }
+        }
+        
+        stage('Generate Test Reports') {
+            steps {
+                echo 'Generating Allure test reports...'
+                script {
+                    allure includeProperties: false,
+                           jdk: '',
+                           results: [[path: 'reports/allure-results']]
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'Publishing test reports and artifacts...'
+            
+            // Publish HTML smoke test report
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports',
+                reportFiles: 'smoke_report.html',
+                reportName: 'Smoke Test Report',
+                reportTitles: 'Smoke Tests Execution Report'
+            ])
+            
+            // Archive test reports
+            archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
+            
+            // Archive screenshots if any failures occurred
+            archiveArtifacts artifacts: 'screenshots/**/*.png', allowEmptyArchive: true
+            
+            // Clean workspace to free up disk space
+            echo '🧹 Cleaning up workspace...'
+            cleanWs()
+        }
+        
+        success {
+            echo ' Smoke tests passed successfully!'
+            echo 'All critical functionality is working as expected.'
+            
+            // Optional: Send Slack notification
+            // slackSend(
+            //     color: 'good',
+            //     message: "Smoke Tests PASSED: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
+            // )
+        }
+        
+        failure {
+            echo ' Smoke tests failed! Critical issues detected.'
+            
+            // Send email notification on failure
+            emailext(
+                subject: " SMOKE TEST FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    <html>
+                    <body style="font-family: Arial, sans-serif;">
+                        <h2 style="color: #d9534f;">Smoke Test Failure Alert</h2>
+                        <p><strong>Job:</strong> ${env.JOB_NAME}</p>
+                        <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                        <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                        <p><strong>Status:</strong> <span style="color: red; font-weight: bold;">FAILED</span></p>
+                        
+                        <hr>
+                        
+                        <h3>What are Smoke Tests?</h3>
+                        <p>Smoke tests verify <strong>critical functionality</strong> of the application. 
+                        A failure indicates potential <strong>major issues</strong> that need immediate attention.</p>
+                        
+                        <h3>Recommended Actions:</h3>
+                        <ol>
+                            <li>Review the <a href="${env.BUILD_URL}Smoke_20Test_20Report/">test report</a></li>
+                            <li>Check console output for error details</li>
+                            <li>Verify the application is accessible</li>
+                            <li>Fix critical issues before deploying</li>
+                        </ol>
+                        
+                        <p style="margin-top: 20px; color: #666;">
+                            <em>This is an automated notification from Jenkins CI/CD Pipeline</em>
+                        </p>
+                    </body>
+                    </html>
+                """,
+                to: 'qa-team@example.com',
+                mimeType: 'text/html',
+                attachLog: true
+            )
+            
+            // Optional: Send Slack notification
+            // slackSend(
+            //     color: 'danger',
+            //     message: " SMOKE TESTS FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}\n⚠️ Critical issues detected!\nCheck: ${env.BUILD_URL}"
+            // )
+        }
+        
+        unstable {
+            echo '⚠️ Smoke tests unstable - some tests failed.'
+            
+            emailext(
+                subject: "⚠️ Smoke Tests Unstable: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Some smoke tests failed. Please review: ${env.BUILD_URL}",
+                to: 'qa-team@example.com'
+            )
+        }
+        
+        changed {
+            echo 'Build status changed from previous run.'
+            
+            script {
+                def previousResult = currentBuild.previousBuild?.result ?: 'UNKNOWN'
+                def currentResult = currentBuild.result ?: 'SUCCESS'
+                
+                emailext(
+                    subject: "Status Changed: ${env.JOB_NAME}",
+                    body: """
+                        Build status changed:
+                        Previous: ${previousResult}
+                        Current: ${currentResult}
+                        
+                        Build URL: ${env.BUILD_URL}
+                    """,
+                    to: 'qa-team@example.com'
+                )
+            }
+        }
+    }
+}

@@ -9,3 +9,12 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+logger.info("Logger initialized")
+
+logger.debug("Logger initialized")
+logger.info("Logger initialized")
+logger.warning("Logger initialized")
+logger.error("Logger initialized")
+logger.critical("Logger initialized")
+
