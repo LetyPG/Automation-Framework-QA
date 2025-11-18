@@ -3,7 +3,7 @@
 # English: Define the form submission page controller with the specifics methods to interact with the form submission page
 # Spanish: Define el controlador de la página de envío de formularios con los métodos específicos para interactuar con la página de envío de formularios
 from utils.config import Configuration
-from pages.base_actions import BaseActions  
+from src.pages.base_actions import BaseActions  
 
 
 # English: Class that represents the Create Account page in Magento

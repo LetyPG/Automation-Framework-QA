@@ -74,8 +74,10 @@ Automation-Framework-QA/
 │
 ├── docs/                    # Documentation of the framework in markdown format and includes English and Spanish documentation
 ├── drivers/                 # Drivers for different browsers
-├── pages/                   # Clase by page (modelo POM)
-├── api/                     # API Module base calss for API tests
+├── src/                     # Source code of the framework 'src' is short for 'source'
+|   ├── pages/               # Clase by page (modelo POM)
+|   |__ api/                 # API Module base calss for API tests
+|
 ├── ci_cd/                   # CI/CD Module base calss for CI/CD tests, contains jenkinsfiles for different jobs (api, staging, smoke, ui), that are used to run the tests in different environments, for example staging job runs the ui tests in staging environment
 ├── features/                # Feature files for BDD (Behavior-Driven Development)
 ├── tests/                   # Test cases modules grouped by testing strategy as diffrent suite tests (smoke, regression, api, e2e, etc)
@@ -472,8 +474,10 @@ Como una práctica recomendada, se recomienda considerar estos temas para un fra
 Automation-Framework-QA/
 ├── docs/                    # Documentación (¡estás aquí!)
 ├── driver/                  # Drivers de navegador opcionales
-├── pages/                   # Clases de Objeto de Página
-├── api/                     # Clases de Objeto de API para automatización de test de API
+├── src/                     # Código fuente del framework 'src' es la abreviatura de 'source'
+|    ├── pages/               # Clases de Objeto de Página
+|    |__ api/                 # Clases de Objeto de API para automatización de test de API
+|
 ├── ci_cd/                   # Contiene la logica para automatizar la ejecucion de test en un ciclo de intregracion y deployment, utiliza la herramienta Jenkins para diferentes jobs (api, staging, smoke, ui), que son usados para ejecutar los tests en distintos entornos
 ├── features/                # Archivos feature para ejecutar tests utilizando la metodologia BDD (Behavior-Driven Development)
 ├── tests/                   # Modulos de test cases agrupados por suites de pruebas, donde cada una contiene una estrategia de pruebas como smoke, regression, api, e2e, etc

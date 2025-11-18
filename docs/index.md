@@ -24,7 +24,7 @@ Documentación completa del framework en español:
 
 ---
 
-##  Quick Start
+##  Quick Start/ Guía de inicio
 
 1. **[Getting Started (English)](english/getting_started.md)** | **[Guía de Inicio (Español)](spanish/getting_started.md)**
 2. **[Automation Strategy (English)](english/automation_strategy.md)** | **[Estrategia de Automatización (Español)](spanish/automation_strategy.md)**
@@ -36,6 +36,9 @@ Documentación completa del framework en español:
 This framework demonstrates:
 - **Page Object Model (POM)** design pattern
 - **SOLID principles** in test automation
+- **BDD principles** in test automation
+- **CI/CD principles** in test automation
+- **API principles** in test automation
 - **Pytest fixtures** and markers
 - **Selenium WebDriver** best practices
 - **Dynamic test data** with Faker
@@ -52,7 +55,9 @@ Automation-Framework-QA/
 ├── ci_cd/                   # CI/CD module to use jenkinsfiles for integrate test in a CI/CD flow using jenkins pipeline
 ├── drivers/                 # Drivers for different browsers
 ├── features/                # Features for different test strategies
-├── pages/                   # Class by page (modelo POM)
+├── src/                     # Source code of the framework 'src' is short for 'source'
+|   ├── pages/               # Class by page (modelo POM)
+|   ├── api/                 # API module to use the api base class and user_api instance
 ├── tests/                   # Module test cases
 ├── utils/                   # Configuration, logs, data and helpers
 ├── tools/                   # Unit tests for page objects

@@ -10,7 +10,7 @@ Educational Notes:
 
 
 Spanish:
-Pruebas de API de Servicio de Usuario - Suite de pruebas completa para endpoints de API de usuario
+Pruebas de API de Servicio de Usuario - Suite de pruebas completa para búsqueda y filtrado de endpoints de API de usuario
 Esto demuestra las mejores prácticas de pruebas de API con el framework pytest
 
 Notas Educativas:
@@ -18,9 +18,6 @@ Notas Educativas:
 - Se integra con Allure para reportes
 """
 
-
-
-import pytest
 import allure       
 from faker import Faker
 

@@ -1,7 +1,7 @@
 # English: Define the search product page controller with the specifics methods to interact with the search product page
 # Spanish: Define el controlador de la página de búsqueda de productos con los métodos específicos para interactuar con la página de búsqueda de productos
 
-from pages.base_actions import BaseActions
+from src.pages.base_actions import BaseActions
 from utils.config import Configuration
 
 """

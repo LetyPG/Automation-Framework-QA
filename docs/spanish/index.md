@@ -80,7 +80,12 @@ Este es un **proyecto educativo** diseñado para demostrar:
 Automation-Framework-QA/
 ├── docs/                    # Documentación (¡estás aquí!)
 ├── driver/                  # Drivers de navegador opcionales
-├── pages/                   # Clases de Objeto de Página
+├── src/                     # Código fuente del proyecto
+|   ├── pages/               # Clases de Objeto de Página
+|   ├── api/                 # Clases de API
+|
+|__ ci-cd/                   # Directorio para el CI/CD
+|__ features/                # Directorio para los features permite aplicar el modelo BDD (Behavior Driven Development/Desarrollo Guiado por Comportamiento)
 ├── tests/                   # Modulos de test cases agrupados por suites de pruebas, donde cada una contiene una estrategia de pruebas como smoke, regression, api, e2e, etc
 ├── tools/                   # Pruebas unitarias para objetos de página
 ├── utils/                   # Utilidades (config, data, browser, assertions)

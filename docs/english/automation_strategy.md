@@ -341,16 +341,17 @@ class LoginPage(BaseActions):
 Automation-Framework-QA/
 ├── docs/                    # Documentation
 ├── driver/                  # Optional browser drivers
-├── pages/                   # Page Object classes
-│   ├── base_actions.py      # Reusable Selenium operations
-│   ├── login.py             # LoginPage
-│   └── page_account_user.py # AccountUserPage
-├── api/                     # API Client Module
-│   ├── __init__.py          # Module exports
-│   ├── base_api_client.py   # Base HTTP client (reusable)
-│   ├── user_service_api.py  # User service implementation
-│   ├── product_service_api.py  # Product service (future)
-│   └── README.md            # This file explain the api module
+├── src/                     # Source code of the framework 'src' is short for 'source'
+│   ├── pages/                   # Page Object classes
+│   |   ├── base_actions.py      # Reusable Selenium operations
+│   |   ├── login.py             # LoginPage
+│   |   └── page_account_user.py # AccountUserPage
+│   └── api/                     # API Client Module
+│       ├── __init__.py          # Module exports
+│       ├── base_api_client.py   # Base HTTP client (reusable)
+│       ├── user_service_api.py  # User service implementation
+│       ├── product_service_api.py  # Product service (future)
+│       └── README.md            # This file explain the api module
 ├── ci_cd/
 |     ├── README.md
 |     ├── jenkins_api/
@@ -365,7 +366,7 @@ Automation-Framework-QA/
 |     |     └── jenkins_ui/
 |     |           ├── jenkinsfile
 |     |           └── 
-|     └── features/
+├── features/
 |           ├── README.md
 |           ├── api/
 |           |     ├── user_service.feature
