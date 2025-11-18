@@ -4,8 +4,12 @@
 ```
 Automation-Framework-QA/
 ├── docs/                    # Documentation of the framework in markdown format and includes English and Spanish documentation
+├── ci_cd/                   # CI/CD Module base calss for CI/CD tests, contains jenkinsfiles for different jobs (api, staging, smoke, ui), that are used to run the tests in different environments.
 ├── drivers/                 # Drivers for different browsers
-├── pages/                   # Clase by page (modelo POM)
+|__ features/                # Features for different environments using BDD (Behavior Driven Development)
+├── src/                     # Source code of the framework 'src' is short for 'source'
+│   ├── pages/               # Clase by page (modelo POM)
+│   |__ api/                 # API Module base calss for API tests
 ├── tests/                   # Module test cases
 ├── utils/                   # Configuration, logs, data and helpers
 ├── tools/                   # Unit tests for page objects
@@ -71,7 +75,7 @@ From here the directories were structured as follows (You can see initials `L, S
 
 ```
 
-├── pages/                        
+├── src/pages/                        
 │   ├── __init__.py
 │   ├── base_page.py         # Definition of the base class (BasePage), with reusable methods to encapsulate interaction logic, with the browser and elements (click, write, wait)
 │   ├──                      # Them are created instanciated to the driver, where the generic methods of the base class are inherited (herencia) 

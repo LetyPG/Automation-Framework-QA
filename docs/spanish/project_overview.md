@@ -6,7 +6,12 @@ Automation-Framework-QA/
 │
 ├── docs/                    # Documentación del framework en formato markdown y incluye documentación en inglés y español
 ├── drivers/                 # Drivers para diferentes navegadores
-├── pages/                   # Clase por página (modelo POM)
+├── src/                     # Código fuente del proyecto
+|   ├── pages/               # Clase por página (modelo POM)
+|   ├── api/                 # Clase para la API (modelo POM)
+| 
+|__ ci-cd/                   # Directorio para el CI/CD
+|__ features/                # Directorio para los features permite aplicar el modelo BDD (Behavior Driven Development/Desarrollo Guiado por Comportamiento)
 ├── tests/                   # Modulos de test cases
 ├── utils/                   # Configuración, logs, datos y helpers
 ├── tools/                   # Pruebas unitarias para objetos de página

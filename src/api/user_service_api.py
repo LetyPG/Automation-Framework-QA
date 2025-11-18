@@ -1,31 +1,8 @@
 
-"""
-English:
-User Service API - Specific implementation for User-related API endpoints
-This class extends BaseAPIClient following the Open/Closed Principle
-It demonstrates how to create service-specific API clients for testing
+# User Service API, is an implementation of the BaseAPIClient class for user management operations
+# Servicio de usuario de la API, es una implementación de la clase BaseAPIClient para operaciones de gestión de usuarios
 
-Educational Notes:
-- Inherits from BaseAPIClient to reuse HTTP methods
-- Encapsulates business logic for user operations (CRUD)
-- Uses type hints for better code documentation
-- Provides methods that map to real API endpoints
-- Example uses JSONPlaceholder as a free testing API
-
-Spanish:
-API de Servicio de Usuario - Implementación específica para endpoints API relacionados con usuarios
-Esta clase extiende BaseAPIClient siguiendo el Principio Abierto/Cerrado
-Demuestra cómo crear clientes API específicos de servicio para pruebas
-
-Notas Educativas:
-- Hereda de BaseAPIClient para reutilizar métodos HTTP
-- Encapsula lógica de negocio para operaciones de usuario (CRUD)
-- Usa type hints para mejor documentación del código
-- Proporciona métodos que mapean a endpoints API reales
-- Ejemplo usa JSONPlaceholder como API de prueba gratuita
-"""
-
-from api.base_api_client import BaseAPIClient
+from src.api.base_api_client import BaseAPIClient
 from typing import Dict, List, Optional
 import os
 from dotenv import load_dotenv

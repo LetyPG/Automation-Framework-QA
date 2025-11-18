@@ -2,7 +2,7 @@
 # English: Define the account user page controller with the specifics methods to interact with the account user page
 # Spanish: Define el controlador de la página de cuenta de usuario con los métodos específicos para interactuar con la página de cuenta de usuario
 
-from pages.base_actions import BaseActions
+from src.pages.base_actions import BaseActions
 from utils.config import Configuration
 
 """

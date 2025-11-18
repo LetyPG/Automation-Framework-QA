@@ -2,7 +2,7 @@
 # Spanish: Define el controlador de la página de login con los métodos específicos para interactuar con la página de login
 
 
-from pages.base_actions import BaseActions
+from src.pages.base_actions import BaseActions
 from utils.config import Configuration
 
 """

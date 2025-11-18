@@ -425,16 +425,17 @@ class LoginPage(BaseActions):
 Automation-Framework-QA/
 ├── docs/                    # Documentación
 ├── driver/                  # Drivers de navegador opcionales
-├── pages/                   # Clases de Page Object
-│   ├── base_actions.py      # Operaciones Selenium reutilizables
-│   ├── login.py             # LoginPage
-│   └── page_account_user.py # AccountUserPage
-├── api/                     # Módulo de API Client
-│   ├── __init__.py          # Exporta el módulo
-│   ├── base_api_client.py   # Base HTTP client (reusable)
-│   ├── user_service_api.py  # Implementación del User service
-│   ├── product_service_api.py  # Implementación del Product service
-│   └── README.md            # Este archivo explica el módulo api y su uso
+├── src/                     # Código fuente del proyecto
+│   ├── pages/               # Clases de Page Object
+│   │   ├── base_actions.py  # Operaciones Selenium reutilizables
+│   │   ├── login.py         # LoginPage
+│   │   └── page_account_user.py # AccountUserPage
+│   ├── api/                 # Módulo de API Client
+│   │   ├── __init__.py      # Exporta el módulo
+│   │   ├── base_api_client.py   # Base HTTP client (reusable)
+│   │   ├── user_service_api.py  # Implementación del User service
+│   │   ├── product_service_api.py  # Implementación del Product service
+│   │   └── README.md            # Este archivo explica el módulo api y su uso
 ├── ci_cd/                   # Módulo de CI/CD
 |     ├── README.md          # Este archivo explica el módulo ci_cd, la logica de la pipeline y su uso
 |     ├── jenkins_api/
@@ -449,7 +450,7 @@ Automation-Framework-QA/
 |     |     └── jenkins_ui/
 |     |           ├── jenkinsfile
 |     |           └── 
-|     └── features/
+── features/
 |           ├── README.md
 |           ├── api/
 |           |     ├── user_service.feature
