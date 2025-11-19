@@ -1,16 +1,21 @@
 
 **Version**: 0.1.2  
 **Last Updated**: 2025  
-**Language**: English 🟦| Español 🟩
+**Language:** English  | [Español 
 
->There are two versions of this README.md, one in English, indicated by 🟦 at the top of this file, and one in Spanish, indicated by 🟩, at the bottom. You can choose the one you want to use. 
+> This README contains two versions, guided by this color code:  
+> 🟦 **English version** at the top  
+> 🟩 **Spanish version** at the bottom  
+> You can choose your preferred language.
 
->Se encuentran dos versiones de este README.md, una en inglés, indicada por 🟦 en la parte superior de este archivo y otra en español, indicada por 🟩 en la parte inferior, puedes escoger la que prefieras.
+> Este README contiene dos versiones, indicado por este sistema de colores:  
+> 🟦 **Versión en inglés** en la parte superior  
+> 🟩 **Versión en español** al final del archivo  
+> Puedes revisar este documento en el idioma de tu preferncia
 
+# English Version
+## 🟦 C-QA-Automation-Framework Project
 
-
-# 🟦 C-QA-Automation-Framework Project
-**English Version** 
 
 >This is a Demo Project to create a simple Automation Framework for a website UI (Magento) and as an educational project, not as a production-ready code.
 
@@ -18,9 +23,9 @@
 
 This project is an Automation Testing Framework developed with Python, Pytest, and Selenium WebDriver, designed to ensure scalability, maintainability, and structural clarity through the application of SOLID principles and software engineering best practices.
 
-This code is recommended for beginners to understand the basic concepts of the Automation Framework  using Python, Selenium WebDriver, Pytest, Faker, Allure Reports, and it is not a production-ready code.
+This code is recommended for beginners to understand the basic concepts of the Automation Framework  using Python, Selenium WebDriver, Pytest, Faker, Allure Reports, and it is not production-ready code.
 
-The C-QA named keeps a consecution of an educative web site [Compilidor QA](https://www.compiladorqa.tech/) (in English means Compiler QA), created to help QA professionals to learn and understand the basic concepts of technology, for that reason was the desicion to used `C-QA` as a short name for this project, of Automation Framework, related to the web site mentioned before.
+The C-QA named keeps a consecution of an educative web site [Compilador QA](https://www.compiladorqa.tech/) (in English means Compiler QA), created to help QA professionals to learn and understand the basic concepts of technology, for that reason was the desicion to used `C-QA` as a short name for this project, of Automation Framework, related to the web site mentioned before.
 
 
 ## Very Important ⚠️  
@@ -39,7 +44,7 @@ The specific scope of this project is an Automation UI practice that explains Se
 - API Automation
 - CI/CD flow (Jenkins/GitHub Actions)
 
-But as a best practice, it is strongly recommended consider these topics for a real and integral Automation Framework.
+But as a best practice, it is strongly recommended to consider these topics for a real and integral Automation Framework.
 
 ## 🟦 Objectives
 
@@ -417,15 +422,15 @@ This is an educational framework. Feel free to:
 ----
 ----
 
+# Versión en Español
+## 🟩 Proyecto Automation-Framework-QA
 
-# 🟩 Proyecto Automation-Framework-QA
-**Versión en Español** 
 >Este es un Demo Project para crear un  `Framework de Automatización`, base y simple, para un sitio web UI (Magento) y como un proyecto educativo, no como un código listo para producción.
 
 Este es un proyecto de `Automation Testing Framework` desarrollado con **Python, Pytest y Selenium WebDriver**, diseñado para asegurar la escalabilidad, mantenibilidad y claridad estructural a través de la aplicación de los principios SOLID y las mejores prácticas de ingeniería de software.
 
 Este código es recomendado para principiantes para entender los conceptos básicos de un Framework de Automatización utilizando Python, Selenium WebDriver, Pytest, Faker, Allure Reports, y no es un código listo para producción.
-El nombre `C-QA` se mantiene como una consecución del sitio web educativo [Compilidor QA](https://www.compiladorqa.tech/), desarrollado para contribuir a la comunidad QA y ayudar a los profesionales de QA a aprender y entender los conceptos básicos de tecnología, por eso se decidió usar `C-QA` como un nombre corto para este proyecto de Framework de Automatización, alegorico al sitio web mencionado antes.
+El nombre `C-QA` se mantiene como una consecución del sitio web educativo [Compilador QA](https://www.compiladorqa.tech/), desarrollado para contribuir a la comunidad QA y ayudar a los profesionales de QA a aprender y entender los conceptos básicos de tecnología, por eso se decidió usar `C-QA` como un nombre corto para este proyecto de Framework de Automatización, alegorico al sitio web mencionado antes.
 
 
 ## Importante ⚠️
@@ -844,5 +849,5 @@ Este es un framework educativo. ¡Siéntase libre de:
 
 **Version**: 0.1.2  
 **Last Updated**: 2025  
-**Language**: English | [Español](../spanish/index.md)
+**Language**: English | Español
 
