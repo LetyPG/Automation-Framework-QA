@@ -1,23 +1,24 @@
 
 **Version**: 0.1.2  
 **Last Updated**: 2025  
-**Language**: English | [Español](../spanish/index.md)
+**Language**: English 🟦| Español 🟩
 
->There are two versions of this README.md, one in English, indicated by 🟦 at the top of this file and one in Spanish, indicated by 🟩, at the bottom, you can choose the one you want to use. 
+>There are two versions of this README.md, one in English, indicated by 🟦 at the top of this file, and one in Spanish, indicated by 🟩, at the bottom. You can choose the one you want to use. 
 
->Se encuentran dos versiones de este README.md, una en Inglés, indicada por 🟦 en la parte superior de este archivo y otra en Español, indicada por 🟩 en la parte inferior, puedes escoger la que prefieras.
-
-
-
-# Project C-QA-Automation-Framework
-🟦 **English Version**
->This a Demo Project to create a simple Automation Framework for a web site UI (Magento) and as an educational project, not as a production ready code.
+>Se encuentran dos versiones de este README.md, una en inglés, indicada por 🟦 en la parte superior de este archivo y otra en español, indicada por 🟩 en la parte inferior, puedes escoger la que prefieras.
 
 
 
-This project is an Automation Testing Framework developed with Python, Pytest and Selenium WebDriver, designed to ensure scalability, maintainability and structural clarity through the application of SOLID principles and software engineering best practices.
+# 🟦 C-QA-Automation-Framework Project
+**English Version** 
 
-This code is recomended for beginners to understand the basic concepts of Automation Framework  using Python, Selenium WebDriver, Pytest, Faker, Allure Reports, and it is not a production ready code.
+>This is a Demo Project to create a simple Automation Framework for a website UI (Magento) and as an educational project, not as a production-ready code.
+
+
+
+This project is an Automation Testing Framework developed with Python, Pytest, and Selenium WebDriver, designed to ensure scalability, maintainability, and structural clarity through the application of SOLID principles and software engineering best practices.
+
+This code is recommended for beginners to understand the basic concepts of the Automation Framework  using Python, Selenium WebDriver, Pytest, Faker, Allure Reports, and it is not a production-ready code.
 
 The C-QA named keeps a consecution of an educative web site [Compilidor QA](https://www.compiladorqa.tech/) (in English means Compiler QA), created to help QA professionals to learn and understand the basic concepts of technology, for that reason was the desicion to used `C-QA` as a short name for this project, of Automation Framework, related to the web site mentioned before.
 
@@ -25,26 +26,26 @@ The C-QA named keeps a consecution of an educative web site [Compilidor QA](http
 ## Very Important ⚠️  
 🟦 I recommended you: 
 - First remember that the base to create any program code is to abstract the problem from reality, what I mean to say by this, it is very imortant understand the bussiness logic in which you are working, the scope, the final user and the projects requeriments, also you must create a test plan and decide the test strategy to be used, for example, you can use a test strategy as `Smoke Testing`, `Regression Testing`, `API Testing`, `Mobile Testing`, `UI Testing`, etc.
-- Try to understand the code and the structure of the framework, the program logic and the automation fundamentals by using Selenium WebDriver, Pytest and Python
+- Try to understand the code and the structure of the framework, the program logic, and the automation fundamentals by using Selenium WebDriver, Pytest, and Python
 - Not only copy and paste the code, because that is not the point of this project, the point is to understand the code and the structure of the framework.
-- Once you understand the code and the structure of the framework, you will be able to create your own framework, and you will be able to automate your own web site UI.
-- In addition you can add new features to the framework, such as mobile automation, API automation, CI/CD flow (Jenkins/GitHub Actions), unit tests, etc.
-- Also in adition you can include more test modules, and more test cases and the needed libraries to make it work.
+- Once you understand the code and the structure of the framework, you will be able to create your own framework, and you will be able to automate your own website UI.
+- In addition, you can add new features to the framework, such as mobile automation, API automation, CI/CD flow (Jenkins/GitHub Actions), unit tests, etc.
+- Also, in addition, you can include more test modules, more test cases, and the needed libraries to make it work.
 
 ## 🟦 Scope
-The specific scope of this project is Automation UI practice to explain Selenium Webdriver and Pytest using a simple e-commerce web site.
+The specific scope of this project is an Automation UI practice that explains Selenium WebDriver and Pytest using a simple e-commerce website.
 **Not included**
 - Mobile Automation
 - API Automation
 - CI/CD flow (Jenkins/GitHub Actions)
 
-But as a best practice it is strongly recommended consired this topics for a real and integral Automation Framework.
+But as a best practice, it is strongly recommended consider these topics for a real and integral Automation Framework.
 
 ## 🟦 Objectives
 
-- Automatize critical flows of an e-commerce web site Magento, validating functionalities as login, user registration, search, shopping cart and checkout, reliably and reutilizable.
-- Create a simple Automation Framework for a web site UI (Magento) and as an educational project.
-- Understand the basic concepts of Automation Framework  using Python, Selenium WebDriver, Pytest, Faker, Allure Reports, and it is not a production ready code.
+- Automatize critical flows of an e-commerce website Magento, validating functionalities as login, user registration, search, shopping cart, and checkout, reliably and reutilizable.
+- Create a simple Automation Framework for a website UI (Magento) and as an educational project.
+- Understand the basic concepts of Automation Framework  using Python, Selenium WebDriver, Pytest, Faker, Allure Reports, and it is not production-ready code.
 
 
 ## 🟦 Technologies used
@@ -157,7 +158,7 @@ cd Automation-Framework-QA
 
 #### 3️⃣ Set Up Python Virtual Environment (Recommended)
 
-Use a virtual environment to isolate project dependencies from your system Python. This is a good practice to keep the development environment clean and organized and avoid conflicts with other dependencies of your system, for example, in case you have a different version of Python installed in your system and the framework requires a different version, the virtual environment will allow you to keep both versions without conflicts.
+Use a virtual environment to isolate project dependencies from your system Python. This is a good practice to keep the development environment clean and organized and avoid conflicts with other dependencies of your system. For example, in case you have a different version of Python installed in your system and the framework requires a different version, the virtual environment will allow you to keep both versions without conflicts.
 By executing the following commands in the terminal, you can create and activate a virtual environment, which uses the tool `venv` that comes by default with Python.
 
 #### On Linux/macOS:
@@ -214,7 +215,7 @@ pip install -r requiriments.txt
 
 #### 6️⃣ Run tests
 
-Since you are already located in the project directory, on the root directory, you do not need to move to any other directory; you can run the tests from there, using the following commands:
+Since you are already located in the project directory, in the root directory, you do not need to move to any other directory; you can run the tests from there, using the following commands:
 
 
 #### Tests directory `tests/`
@@ -259,7 +260,7 @@ pytest -m regression -v
 
 >Note: `-m` filters by marker name, not by test filename. To run a specific file, pass the file path; to match test names, use `-k`.
 
->Note: You can run tests using `-v` for verbose output or `-q` for quiet output, that depends on your information needs.
+>Note: You can run tests using `-v` for verbose output or `-q` for quiet output, depending on your information needs.
 
 #### 7️⃣ Allure reports (optional)
 
@@ -392,7 +393,7 @@ For a balanced QA framework:
 
 ### 🟦 Final Remarks
 
-1. This Project will include on future updates as a release version:
+1. This Project will be included in future updates as a release version:
 - Mobile Automation
 - API Automation
 - CI/CD flow (Jenkins/GitHub Actions)
@@ -418,8 +419,7 @@ This is an educational framework. Feel free to:
 
 
 # 🟩 Proyecto Automation-Framework-QA
-
-**Versión en Español** 🟩
+**Versión en Español** 
 >Este es un Demo Project para crear un  `Framework de Automatización`, base y simple, para un sitio web UI (Magento) y como un proyecto educativo, no como un código listo para producción.
 
 Este es un proyecto de `Automation Testing Framework` desarrollado con **Python, Pytest y Selenium WebDriver**, diseñado para asegurar la escalabilidad, mantenibilidad y claridad estructural a través de la aplicación de los principios SOLID y las mejores prácticas de ingeniería de software.
@@ -435,7 +435,7 @@ El nombre `C-QA` se mantiene como una consecución del sitio web educativo [Comp
 - No solo copie y pegue el código, porque eso no es el punto de este proyecto, el punto es entender el código y la estructura del framework.
 - Una vez que comprenda el código y la estructura del framework, podrá crear su propio framework y podrá automatizar su propio sitio web UI.
 - Además, puede agregar nuevas características al framework, como automatización móvil, automatización de API, flujo CI/CD (Jenkins/GitHub Actions), pruebas unitarias, etc.
-- También puede incluir más módulos de pruebas y más casos de pruebas y las bibliotecas necesarias para que funcione.
+- También puede incluir más módulos de pruebas y más casos de prueba y las bibliotecas necesarias para que funcione.
 
 ## 🟩 Alcance
 El alcance específico de este proyecto es la práctica de Automation UI para explicar Selenium Webdriver y Pytest utilizando un sitio web de comercio electrónico simple.
